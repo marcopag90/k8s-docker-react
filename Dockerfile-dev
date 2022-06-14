@@ -1,0 +1,12 @@
+FROM node:14-alpine
+
+WORKDIR '/app'
+
+# Only package.json to install required dependencies
+COPY package.json .
+RUN npm install
+
+# Now everything else
+COPY . .
+
+CMD ["npm", "run", "start"]
